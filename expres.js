@@ -4,6 +4,7 @@ const bodyparse=require('body-parser');
 const morgan =require('morgan');
 const apiclass =require('./apisdata.js');
 const schema= require('./schema.js');
+const port = process.env.port || 3000;
 
 app.use(morgan('dev'));
 app.use(bodyparse.urlencoded({extended:false}));
@@ -11,7 +12,7 @@ app.use(bodyparse.json());
 
 
 app.get('/',(req,res)=>{
-    console.log('done');
+    res.send('done').json('done');
     
     
 });
@@ -31,6 +32,6 @@ app.get('/api/:id/:id2',(req,res)=>{
    });
    console.log('ok');
    
-   res.json(200,id1+id2);   
+   res.send('ok done');   
 })
-app.listen(3000,()=>{console.log('awaiting ')});
+app.listen(port,()=>{console.log('awaiting ')});

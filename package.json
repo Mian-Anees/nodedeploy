@@ -2,9 +2,9 @@
   "name": "npm-demo",
   "version": "1.0.0",
   "description": "demo application!!",
-  "main": "app.js",
+  "main": "expres.js",
   "scripts": {
-    "test": "node expres.js"
+    "start": "node expres.js"
   },
   "author": "Mian Anees",
   "license": "ISC",
