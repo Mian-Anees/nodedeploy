@@ -27,18 +27,18 @@ app.get('/api/:id/:id2',async (req,res,next)=>{
        name:id1,
        pascode:id2
    });
-   const mdbres = await useer.save().then(res=>{
+    await useer.save().then(res=>{
        console.log(res);
        
        console.log('ok');
    });
-   console.log(mdbres);
+  
   } 
  catch (err){
           next(err);
             }
   
-   console.log('ok2');
+  
    
    res.send('ok done');   
 });
