@@ -16,7 +16,7 @@ app.get('/',(req,res)=>{
     
     
 });
-app.get('/api/:id/:id2',(req,res)=>{
+app.get('/api/:id/:id2',async (req,res)=>{
  const id1=req.params.id;
  const id2=req.params.id2;
     apiclass.signup();
@@ -25,12 +25,12 @@ app.get('/api/:id/:id2',(req,res)=>{
        name:id1,
        pascode:id2
    });
-   useer.save().then(res=>{
+   const mdbres = await useer.save().then(res=>{
        console.log(res);
+       console.log(mdbres);
        console.log('ok');
-       
    });
-   console.log('ok');
+   console.log('ok2');
    
    res.send('ok done');   
 })
