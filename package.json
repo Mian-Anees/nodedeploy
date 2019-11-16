@@ -4,8 +4,8 @@
   "description": "demo application!!",
   "main": "expres.js",
   "scripts": {
-    "start": "node expres.js",
-    //"test" : "echo \"Error: no test specified\" && exit 1"
+    "start": "node expres.js"
+   
   },
   "author": "Mian Anees",
   "license": "ISC",
