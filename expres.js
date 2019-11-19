@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
    });
 app.get('/api/:id/:id2',async (req,res,next)=>{
 
- try {
+ 
     const id1=req.params.id;
  const id2=req.params.id2;
     apiclass.signup();
@@ -27,16 +27,14 @@ app.get('/api/:id/:id2',async (req,res,next)=>{
        name:id1,
        pascode:id2
    });
-    await useer.save().then(res=>{
+    useer.save().then(res=>{
+     
        console.log(res);
        
        console.log('ok');
    });
   
-  } 
- catch (err){
-          next(err);
-            }
+
   
   
    
