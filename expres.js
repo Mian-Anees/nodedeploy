@@ -17,32 +17,29 @@ app.get('/',(req,res)=>{
     
     
    });
-app.get('/api/:id/:id2',async (req,res,next)=>{
+app.get('/api/:id/:id2', (req,res,next)=>{
 
  
 const id1=req.params.id;
  const id2=req.params.id2;
- mongoose.Promise=global.Promise;
- await mongoose.connect('mongodb+srv://Miananees:Mian12345@gettingstarted-jtf43.mongodb.net/test?retryWrites=true&w=majority',{
 
-    useNewUrlParser:true,
-    useUnifiedTopology: true
- }).then(()=>console.log("connected to moongo ")).catch((err)=>console.log(err));
-   // apiclass.signup();
-   console.log(id1,id2);
-   const useer= new schema({
-       name:id1,
-       pascode:id2
-   });
-   await useer.save().then(res=>{
-     
-       console.log(res);
-       
-       console.log('ok');
-   })
-   .catch(console.error('Dbnotconnected'));
+const db ='mongodb+srv://Miananees:Mian12345@gettingstarted-jtf43.mongodb.net/test?retryWrites=true&w=majority';
 
-   
-   res.send('ok done');   
+mongoose.set('useUnifiedTopology',true);
+mongoose.connect(db,{'useNewUrlParser':true,'useCreateIndex':true}).then(()=>console.log('conect to db'))
+.catch((err)=>{console.log(err)});
+const NewUser=new schema(
+   {
+      name: id1,
+      pascode:id2
+   }
+);
+NewUser.save().then((NewUser)=>{
+   console.log('Datasave'+NewUser)
+   res.send('okkk');
+}).catch((err)=>{console.log(err)})
+
+
 });
+
 app.listen(port,()=>{console.log('awaiting ')});
